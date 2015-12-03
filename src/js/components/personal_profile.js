@@ -5,9 +5,9 @@ import { pushState } from 'redux-router';
 const PersonalProfile = React.createClass({
   render() {
     return (
-      <div className="col-sm-6 col-md-4 jumbotron">
+      <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
-          <img src="" alt="User Picture" className="user-image"/>
+          <img data-src="holder.js/200x200" class="img-thumbnail" alt="User Image" />
           <div className="caption">
             <h3>{this.props.current_user.name}</h3>
           </div>
