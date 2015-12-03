@@ -20,17 +20,16 @@ const Login = React.createClass({
 
   render() {
     return (
-        <form onSubmit={this.onClickSubmit}>
-          <div className="form-group">
-            <label>User Name</label>
-            <input type="text" className="form-control" placeholder="Username" ref="name"/>
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input type="password" className="form-control" placeholder="Password" ref="password"/>
-          </div>
-          <button type="submit" className="btn btn-default">Submit</button>
-        </form>
+      <form onSubmit={this.onClickSubmit} className="form-signin">
+        <div className="form-group">
+          <label>Please Link to Our System by Userid</label>
+          <input type="text" className="form-control" placeholder="UserId" ref="userid"/>
+        </div>
+        <button className="btn btn-lg btn-primary btn-block"
+                type="submit">
+                Enter
+        </button>
+      </form>
     );
   }
 });
@@ -47,4 +46,3 @@ export default connect(mapStateToProps, (dispatch) => {
     dispatch
   }
 })(Login);
-
