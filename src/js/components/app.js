@@ -26,6 +26,40 @@ const App = React.createClass({
             </div>
           </nav>
 
+          <div className="modal fade" id="capabilityChooser" role="dialog">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal">&times;</button>
+                  <h4 className="modal-title">Choose a Capbility</h4>
+                </div>
+                <div className="modal-body">
+                  <p>Some text in the modal.</p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-default" data-dismiss="modal">Choose</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="modal fade" id="historyViewer" role="dialog">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal">&times;</button>
+                  <h4 className="modal-title">Assignments History</h4>
+                </div>
+                <div className="modal-body">
+                  <p>Some text in the modal.</p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-sm-6 col-md-4 jumbotron">
               <div className="thumbnail">
@@ -43,12 +77,57 @@ const App = React.createClass({
                 </ul>
                 <div className="panel-body">
                   <p>Project Description</p>
+                  <button type="button"
+                          className="btn btn-info btn-lg"
+                          data-toggle="modal"
+                          data-target="#capabilityChooser">
+                          Apply Evaluation
+                  </button>
+
                 </div>
               </div>
-              <a href="#" className="btn btn-primary" role="button">History</a>
+              <button type="button"
+                      className="btn btn-info btn-lg"
+                      data-toggle="modal"
+                      data-target="#historyViewer">
+                      History
+              </button>
             </div>
           </div>
+          <div className="page-header">
+            <h3>Evaluations</h3>
+          </div>
           <div className="row">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Project</th>
+                  <th>Solution</th>
+                  <th>Stack</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div className="page-header">
+            <h2>Qualifications</h2>
+          </div>
+          <div className="row">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Project</th>
+                  <th>Solution</th>
+                  <th>Stack</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
           </div>
         </div>
     );
