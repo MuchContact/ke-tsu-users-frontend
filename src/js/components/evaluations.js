@@ -14,7 +14,7 @@ const Evaluations = React.createClass({
        return <tr>
                <td>{evaluation.projectName}</td>
                <td>{evaluation.solution?evaluation.solution.name:''}</td>
-               <td>{evaluation.solution?evaluation.stack.name:''}</td>
+               <td>{evaluation.stack?evaluation.stack.name:''}</td>
                <td>{evaluation.status}</td>
              </tr>;
      });

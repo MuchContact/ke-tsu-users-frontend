@@ -1,9 +1,23 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
+import { QualificationAction } from '../actions/actions';
 
 const Qualifications = React.createClass({
+  componentWillMount() {
+    this.props.dispatch(QualificationAction(`/${this.props.current_user.id}/qualifications`));
+  },
   render() {
+    var qualis = [];
+    if(this.props.qualifications.length>0){
+      qualis = this.props.qualifications.map((qualification, index) => {
+       return <tr>
+               <td>{qualification.project_name}</td>
+               <td>{qualification.solution_name}</td>
+               <td>{qualification.stack_name}</td>
+             </tr>;
+     });
+    }
     return (
       <div className="row">
         <div className="page-header">
@@ -13,13 +27,13 @@ const Qualifications = React.createClass({
           <table className="table">
             <thead>
               <tr>
-                <th>#</th>
                 <th>Project</th>
                 <th>Solution</th>
                 <th>Stack</th>
               </tr>
             </thead>
             <tbody>
+              {qualis}
             </tbody>
           </table>
         </div>
@@ -31,7 +45,8 @@ const Qualifications = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    'current_user': state['current_user']
+    qualifications: state.qualifications.qualifications,
+    current_user: state.current_user.current_user
   };
 }
 

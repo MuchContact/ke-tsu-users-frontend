@@ -11,6 +11,7 @@ import new_exam_profile from './new_exam_reducers';
 import current_user from './current_user_reducers';
 import assignment from './assignment_reducers';
 import evaluation from './evaluation_reducers';
+import qualifications from './qualification_reducers';
 
 var rootReducer = combineReducers({
   router: routerStateReducer,
@@ -24,7 +25,9 @@ var rootReducer = combineReducers({
   new_exam_profile: new_exam_profile,
   current_user: current_user,
   assignment: assignment,
-  evaluation: evaluation
+  evaluation: evaluation,
+  qualifications: qualifications
+
 });
 
 export default rootReducer;
