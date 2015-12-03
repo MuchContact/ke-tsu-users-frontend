@@ -1,7 +1,7 @@
 import request from 'superagent';
 import addItemsToForm from '../utils/post_as_form';
 
-const API_PREFIX = 'http://localhost:3000';
+const API_PREFIX = 'http://localhost:8088';
 
 function remotePostAction(name, url, path='') {
   var requestAction = `${name.toUpperCase()}_REQUEST`;
@@ -79,6 +79,7 @@ function remoteGetAction(name, url, path='') {
       console.log('call ' + url + path)
       request
           .get(url + path)
+          .withCredentials()
           .end((err, res) => {
             if (res.statusType == 2 || res.statusType == 3) {
               dispatch(requestSuccess(res.body));
@@ -96,7 +97,50 @@ export function updateTab(tab) {
   }
 }
 
-export var LoginAction = remotePostAction("LOGIN", `${API_PREFIX}/members/login`);
+export function LoginAction(entity) {
+  return (dispatch) => {
+    dispatch({
+      type: "LOGIN_REQUEST"
+    });
+    request.post(`${API_PREFIX}/authentication`)
+        .withCredentials()
+        .type("form")
+        .send(entity)
+        .end((err, res) => {
+          if (res.statusType == 2 || res.statusType == 3 ) {
+            dispatch(CurrentUser());
+          } else {
+            dispatch({
+              type: "LOGIN_FAILED"
+            });
+          }
+        });
+  };
+}
+
+export function LogoutAction(callback) {
+  return (dispatch) => {
+    dispatch({
+      type: "LOGOUT_REQUEST"
+    });
+    request.del(`${API_PREFIX}/authentication`)
+        .withCredentials()
+        .end((err, res) => {
+          if (res.statusType == 2 || res.statusType == 3 ) {
+            dispatch({
+              type: "LOGOUT_SUCCESS"
+            });
+            callback && callback();
+          } else {
+            dispatch({
+              type: "LOGOUT_FAILED"
+            });
+          }
+        });
+  };
+}
+
+export var CurrentUser = remoteGetAction("CURRENT_USER", `${API_PREFIX}/users/current`);
 
 export var NewSolutionAction = remotePostAction("NEW_SOLUTION", `${API_PREFIX}/solutions`);
 export var NewStackAction = remotePostAction("NEW_STACK", `${API_PREFIX}/solutions/`);

@@ -1,18 +1,23 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute } from 'react-router';
 import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
 import {  combineReducers, applyMiddleware, compose, createStore  } from 'redux'
 import { Provider } from 'react-redux'
 import App from './components/app';
 import { createHistory } from 'history';
+import configureStore from './stores/configureStore.dev';
+require("bootstrap-webpack");
 
 import Login from './components/login';
 import Main from './components/main';
 
+var store = configureStore();
+
 var routes = (
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={Main}/>
+        <IndexRoute component={Main} onEnter={requireAuth}/>
         <Route path="login" component={Login}/>
       </Route>
     </Router>
@@ -32,4 +37,22 @@ var routes = (
 //    </Route>
 //    </Route>
 
-export default routes;
+// export default routes;
+
+function requireAuth(nextState, replaceState) {
+  const state = store.getState();
+  if (!state.current_user.current_user.name) {
+    replaceState({
+      nextPathname: nextState.location.pathname
+    }, '/login')
+  }
+}
+
+ReactDOM.render(
+    <Provider store={store}>
+      <ReduxRouter>
+        {routes}
+      </ReduxRouter>
+    </Provider>,
+    document.getElementById("main")
+);

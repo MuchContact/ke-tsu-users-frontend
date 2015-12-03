@@ -1,17 +1,22 @@
-export default function current_user(state={}, action) {
+export default function current_user(state={current_user: {}}, action) {
+  var newState = Object.assign({}, state);
   switch (action.type) {
-    case "LOGIN_REQUEST":
-      return {
+    case "CURRENT_USER_REQUEST":
+      return Object.assign(newState, {
         request_status: "LOADING"
-      };
-    case "LOGIN_SUCCESS":
-      return {
+      });
+    case "CURRENT_USER_SUCCESS":
+      return Object.assign(newState, {
         request_status: "SUCCESS",
-        current_user: action.current_user
-      };
-    case "LOGIN_FAILURE":
-      return {
+        current_user: action.payload
+      });
+    case "CURRENT_USER_FAILURE":
+      return Object.assign(newState, {
         request_status: "FAILED"
+      });
+    case "LOGOUT_SUCCESS":
+      return {
+        current_user: {}
       };
     default:
       return state;

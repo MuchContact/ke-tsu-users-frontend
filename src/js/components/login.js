@@ -7,8 +7,7 @@ const Login = React.createClass({
   onClickSubmit(e) {
     e.preventDefault();
     this.props.dispatch(LoginAction({
-      name: this.refs.name.value,
-      password: this.refs.password.value
+      user_name: this.refs.name.value
     }));
   },
 
@@ -22,8 +21,8 @@ const Login = React.createClass({
     return (
       <form onSubmit={this.onClickSubmit} className="form-signin">
         <div className="form-group">
-          <label>Please Link to Our System by Userid</label>
-          <input type="text" className="form-control" placeholder="UserId" ref="userid"/>
+          <label>Please Link to Our System by User Name</label>
+          <input type="text" className="form-control" placeholder="User Name" ref="name"/>
         </div>
         <button className="btn btn-lg btn-primary btn-block"
                 type="submit">

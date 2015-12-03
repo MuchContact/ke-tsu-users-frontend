@@ -36,7 +36,7 @@ const Main = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    'current_user': state['current_user']
+    current_user: state.current_user.current_user
   };
 }
 
