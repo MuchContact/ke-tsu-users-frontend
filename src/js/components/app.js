@@ -6,8 +6,8 @@ import { pushState } from 'redux-router';
 const App = React.createClass({
   render() {
     return (
-        <div>
-          <nav className="navbar navbar-default">
+        <div className="container">
+          <nav className="navbar navbar-inverse navbar-fixed-top">
             <div className="container-fluid">
               <div className="navbar-header">
                 <a className="navbar-brand" href="#">
@@ -19,9 +19,14 @@ const App = React.createClass({
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-left">
-                  <li><Link to="/" href="javascript: void(0)">Profile</Link></li>
+                  <li><Link to="/" href="javascript: void(0)">My Profile</Link></li>
                   <li><a href="#">Logout</a></li>
                 </ul>
+                <form className="navbar-form navbar-right" role="search">
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Search" />
+                  </div>
+                </form>
               </div>
             </div>
           </nav>
@@ -113,7 +118,7 @@ const App = React.createClass({
             </table>
           </div>
           <div className="page-header">
-            <h2>Qualifications</h2>
+            <h3>Qualifications</h3>
           </div>
           <div className="row">
             <table className="table">
