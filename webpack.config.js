@@ -1,5 +1,6 @@
 var path = require('path');
 var srcPath = path.join(__dirname, 'src');
+var webpack = require('webpack');
 
 module.exports = {
   entry: './src/js/main.js',
@@ -42,5 +43,11 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: './dist'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      API_PREFIX: JSON.stringify(process.env.API_PREFIX) || '{{API_PREFIX}}'
+    })
+  ]
+
 };
