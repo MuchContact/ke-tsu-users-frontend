@@ -1,9 +1,24 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
+import { EvaluationAction } from '../actions/actions';
 
 const Evaluations = React.createClass({
+  componentWillMount() {
+    this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`));
+  },
   render() {
+    var evalus = [];
+    if(this.props.evaluations.length>0){
+      evalus = this.props.evaluations.map((evaluation, index) => {
+       return <tr>
+               <td>{evaluation.projectName}</td>
+               <td>{evaluation.solution?evaluation.solution.name:''}</td>
+               <td>{evaluation.solution?evaluation.stack.name:''}</td>
+               <td>{evaluation.status}</td>
+             </tr>;
+     });
+    }
     return (
       <div className="row">
         <div className="page-header">
@@ -13,7 +28,6 @@ const Evaluations = React.createClass({
           <table className="table">
             <thead>
               <tr>
-                <th>#</th>
                 <th>Project</th>
                 <th>Solution</th>
                 <th>Stack</th>
@@ -21,6 +35,7 @@ const Evaluations = React.createClass({
               </tr>
             </thead>
             <tbody>
+              {evalus}
             </tbody>
           </table>
         </div>
@@ -32,7 +47,8 @@ const Evaluations = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    'current_user': state['current_user']
+    evaluations: state.evaluation.evaluation,
+    current_user: state.current_user.current_user
   };
 }
 
