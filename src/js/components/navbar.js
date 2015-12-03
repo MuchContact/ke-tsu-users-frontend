@@ -2,8 +2,14 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
 import { Link } from 'react-router';
+import { CurrentUser, LogoutAction } from '../actions/actions';
 
 const Navbar = React.createClass({
+  logout() {
+    this.props.dispatch(LogoutAction((() => {
+      this.props.dispatch(this.props.pushState(null, "/login"));
+    }).bind(this)));
+  },
   render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -19,7 +25,7 @@ const Navbar = React.createClass({
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-left">
               <li><Link to="/" href="javascript: void(0)">My Profile</Link></li>
-              <li><Link to="/login" href="javascript: void(0)">Login</Link></li>
+              <li><a href="#" onClick={this.logout}>Logout</a></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
               <div className="form-group">

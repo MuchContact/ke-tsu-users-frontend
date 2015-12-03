@@ -16,17 +16,14 @@ const Main = React.createClass({
     return (
       <div className="container">
         <Navbar />
-
-        <CapabilityChooserDialogue />
-
-        <AssignmentHistoryViewer />
-
         <div className="row">
           <PersonalProfile />
           <Assignment />
         </div>
         <Evaluations />
         <Qualifications />
+        <CapabilityChooserDialogue />
+        <AssignmentHistoryViewer />
 
       </div>
     );

@@ -9,7 +9,7 @@ const PersonalProfile = React.createClass({
         <div className="thumbnail">
           <img src="" alt="User Picture" className="user-image"/>
           <div className="caption">
-            <h3>Zhang Liang</h3>
+            <h3>{this.props.current_user.name}</h3>
           </div>
         </div>
       </div>
@@ -18,8 +18,9 @@ const PersonalProfile = React.createClass({
 });
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
-    'current_user': state['current_user']
+    current_user: state.current_user.current_user
   };
 }
 
