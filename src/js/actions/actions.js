@@ -141,6 +141,7 @@ export function LogoutAction(callback) {
 }
 
 export var CurrentUser = remoteGetAction("CURRENT_USER", `${API_PREFIX}/users/current`);
+export var AssignmentAction = remoteGetAction("ASSIGNMENT", `${API_PREFIX}/users`);
 
 export var NewSolutionAction = remotePostAction("NEW_SOLUTION", `${API_PREFIX}/solutions`);
 export var NewStackAction = remotePostAction("NEW_STACK", `${API_PREFIX}/solutions/`);

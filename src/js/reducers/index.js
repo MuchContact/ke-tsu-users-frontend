@@ -9,6 +9,7 @@ import new_stack from './new_stack_reducers';
 import stack from './stack_reducers';
 import new_exam_profile from './new_exam_reducers';
 import current_user from './current_user_reducers';
+import assignment from './assignment_reducers';
 
 var rootReducer = combineReducers({
   router: routerStateReducer,
@@ -20,7 +21,8 @@ var rootReducer = combineReducers({
   new_stack: new_stack,
   stack: stack,
   new_exam_profile: new_exam_profile,
-  current_user: current_user
+  current_user: current_user,
+  assignment: assignment
 });
 
 export default rootReducer;
