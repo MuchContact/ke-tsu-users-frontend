@@ -2,16 +2,21 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
 import { AssignmentAction } from '../actions/actions';
+import CapabilityChooserDialogue from './capability_chooser_dialogue.js';
 
 const Assignment = React.createClass({
   componentWillMount() {
     this.props.dispatch(AssignmentAction(`/${this.props.current_user.id}/projects`));
   },
   render() {
-    console.log("start");
-    console.log(this.props);
-    console.log("end");
+    var capabilityChooserDialogue='';
+    if(this.props.assignment[0].uri){
+      var project_id = this.props.assignment[0].uri.replace(/.+\/([0-9]+)$/g, "$1");
+      console.log(project_id);
+      console.log("project_id");
 
+      capabilityChooserDialogue = <CapabilityChooserDialogue project_id={project_id}/>
+    }
     return (
       <div className="col-sm-12 col-md-8">
         <div className="panel panel-default">
@@ -42,6 +47,7 @@ const Assignment = React.createClass({
                 data-target="#historyViewer">
                 History
         </button>
+        {capabilityChooserDialogue}
       </div>
     );
   }

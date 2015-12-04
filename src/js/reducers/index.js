@@ -12,6 +12,7 @@ import current_user from './current_user_reducers';
 import assignment from './assignment_reducers';
 import evaluation from './evaluation_reducers';
 import qualifications from './qualification_reducers';
+import capabilities from './capability_reducers';
 
 var rootReducer = combineReducers({
   router: routerStateReducer,
@@ -26,7 +27,8 @@ var rootReducer = combineReducers({
   current_user: current_user,
   assignment: assignment,
   evaluation: evaluation,
-  qualifications: qualifications
+  qualifications: qualifications,
+  capabilities: capabilities
 
 });
 

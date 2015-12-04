@@ -9,7 +9,7 @@ const Evaluations = React.createClass({
   },
   render() {
     var evalus = [];
-    if(this.props.evaluations.length>0){
+    if(this.props.evaluations && this.props.evaluations.length>0){
       evalus = this.props.evaluations.map((evaluation, index) => {
        return <tr>
                <td>{evaluation.projectName}</td>

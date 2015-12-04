@@ -5,7 +5,7 @@ var initialState = {
   ]
 };
 
-export default function evaluation(state=initialState, action) {
+export default function evaluation(state = initialState, action) {
   switch (action.type) {
     case "EVALUATION_REQUEST":
       return Object.assign({
@@ -22,6 +22,23 @@ export default function evaluation(state=initialState, action) {
       return Object.assign({
         evaluation: state.evaluation.slice(0)
       }, {
+        request_status: "FAILED"
+      });
+    case "NEW_EVALUATION_REQUEST":
+      return Object.assign({
+        evaluation: state.evaluation.slice(0),
+        request_status: "LOADING"
+      });
+    case "NEW_EVALUATION_SUCCESS":
+      console.log(state);
+      console.log("state")
+      return {
+        evaluation: state.evaluation.slice(0),
+        request_status: "SUCCESS"
+      };
+    case "NEW_EVALUATION_FAILURE":
+      return Object.assign({
+        evaluation: state.evaluation.slice(0),
         request_status: "FAILED"
       });
     case "LOGOUT_SUCCESS":

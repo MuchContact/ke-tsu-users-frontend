@@ -1,8 +1,6 @@
 import request from 'superagent';
 import addItemsToForm from '../utils/post_as_form';
 
-const API_PREFIX = 'http://localhost:8088';
-
 function remotePostAction(name, url, path='') {
   var requestAction = `${name.toUpperCase()}_REQUEST`;
   var successAction = `${name.toUpperCase()}_SUCCESS`;
@@ -34,6 +32,7 @@ function remotePostAction(name, url, path='') {
       console.log('call ' + url + path);
       request
           .post(url + path)
+          .withCredentials()
           .type('form')
           .send(entity)
           .end((err, res) => {
@@ -147,10 +146,12 @@ export var QualificationAction = remoteGetAction("QUALIFICATION", `${API_PREFIX}
 
 export var NewSolutionAction = remotePostAction("NEW_SOLUTION", `${API_PREFIX}/solutions`);
 export var NewStackAction = remotePostAction("NEW_STACK", `${API_PREFIX}/solutions/`);
+export var NewEvaluationAction = remotePostAction("NEW_EVALUATION", `${API_PREFIX}/projects`);
 
 export var SolutionListAction = remoteGetAction("SOLUTION_LIST", `${API_PREFIX}/solutions`);
 export var ProjectListAction = remoteGetAction("PROJECT_LIST", `${API_PREFIX}/projects`);
 export var ProjectAction = remoteGetAction("PROJECT", `${API_PREFIX}/projects/`);
+export var CapabilityAction = remoteGetAction("CAPABILITY", `${API_PREFIX}/projects`);
 export var SolutionAction = remoteGetAction("SOLUTION", `${API_PREFIX}/solutions/`);
 export var StackAction = remoteGetAction("STACK", `${API_PREFIX}/solutions/`);
 export var NewExamProfileAction = remotePostAction("NEW_EXAM_PROFILE", `${API_PREFIX}/solutions/`);

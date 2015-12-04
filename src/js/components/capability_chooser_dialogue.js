@@ -1,9 +1,45 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
+import { CapabilityAction } from '../actions/actions';
+import { NewEvaluationAction } from '../actions/actions';
 
 const CapabilityChooserDialogue = React.createClass({
+  getInitialState: function() {
+    return {
+      capabilityIndex: -1
+    };
+  },
+  componentWillMount() {
+    this.props.dispatch(CapabilityAction(`/${this.props.project_id}/capabilities`));
+  },
+  clickAnchor(index){
+    return function() {
+      this.setState({
+              capabilityIndex: index
+            });
+    }.bind(this);
+  },
+  onChoose(){
+    var index = this.state.capabilityIndex;
+    var capability = this.props.capabilities[index];
+    console.log(this.props);
+    var evaluationParams = {
+      capability_id: capability.id
+    };
+    this.props.dispatch(NewEvaluationAction(evaluationParams, `/${this.props.project_id}/users/${this.props.current_user.id}/evaluations`));
+  },
   render() {
+    var capability_list = [];
+    if(this.props.capabilities && this.props.capabilities.length>0){
+      capability_list = this.props.capabilities.map((capability, index) => {
+       return <a href="#" onClick={this.clickAnchor(index)} className="list-group-item">
+         <h4 className="list-group-item-heading">Capbility {capability.id}</h4>
+         <p className="list-group-item-text"><span>Solution:</span> {capability.solution? capability.solution.name:''}</p>
+         <p className="list-group-item-text"><span>Stack:</span> {capability.stack? capability.stack.name:''}</p>
+       </a>;
+     });
+    }
     return (
       <div className="modal fade" id="capabilityChooser" role="dialog">
         <div className="modal-dialog">
@@ -13,10 +49,12 @@ const CapabilityChooserDialogue = React.createClass({
               <h4 className="modal-title">Choose a Capbility</h4>
             </div>
             <div className="modal-body">
-              <p>Some text in the modal.</p>
+              <div className="list-group">
+                {capability_list}
+              </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-default" data-dismiss="modal">Choose</button>
+              <button type="button" onClick={this.onChoose} className="btn btn-default" data-dismiss="modal">Choose</button>
             </div>
           </div>
         </div>
@@ -27,7 +65,8 @@ const CapabilityChooserDialogue = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    'current_user': state['current_user']
+    capabilities: state.capabilities.capabilities,
+    current_user: state.current_user.current_user
   };
 }
 

@@ -6,7 +6,6 @@ import PersonalProfile from './personal_profile.js';
 import Assignment from './assignment.js';
 import Evaluations from './evaluations.js';
 import Qualifications from './qualifications.js';
-import CapabilityChooserDialogue from './capability_chooser_dialogue.js';
 import AssignmentHistoryViewer from './assignment_history_viewer.js';
 import Navbar from './navbar.js';
 
@@ -22,7 +21,6 @@ const Main = React.createClass({
         </div>
         <Evaluations />
         <Qualifications />
-        <CapabilityChooserDialogue />
         <AssignmentHistoryViewer />
 
       </div>
