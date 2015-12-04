@@ -23,11 +23,10 @@ const CapabilityChooserDialogue = React.createClass({
   onChoose(){
     var index = this.state.capabilityIndex;
     var capability = this.props.capabilities[index];
-    console.log(this.props);
     var evaluationParams = {
       capability_id: capability.id
     };
-    this.props.dispatch(NewEvaluationAction(evaluationParams, `/${this.props.project_id}/users/${this.props.current_user.id}/evaluations`));
+    this.props.dispatch(NewEvaluationAction(evaluationParams, this.props.project_id, this.props.current_user.id));
   },
   render() {
     var capability_list = [];

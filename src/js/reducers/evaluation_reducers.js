@@ -30,8 +30,6 @@ export default function evaluation(state = initialState, action) {
         request_status: "LOADING"
       });
     case "NEW_EVALUATION_SUCCESS":
-      console.log(state);
-      console.log("state")
       return {
         evaluation: state.evaluation.slice(0),
         request_status: "SUCCESS"

@@ -7,7 +7,7 @@ const PersonalProfile = React.createClass({
     return (
       <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
-          <img data-src="holder.js/200x200" class="img-thumbnail" alt="User Image" />
+          <img data-src="holder.js/200x200" className="profileImg" alt="User Image" />
           <div className="caption">
             <h3>{this.props.current_user.name}</h3>
           </div>

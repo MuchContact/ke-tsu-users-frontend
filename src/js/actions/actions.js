@@ -139,6 +139,26 @@ export function LogoutAction(callback) {
   };
 }
 
+export function NewEvaluationAction(entity, project_id, user_id) {
+  return (dispatch) => {
+    dispatch({
+      type: "NEW_EVALUATION_REQUEST"
+    });
+    request.post(`${API_PREFIX}/projects/${project_id}/users/${user_id}/evaluations`)
+        .withCredentials()
+        .type("form")
+        .send(entity)
+        .end((err, res) => {
+          if (res.statusType == 2 || res.statusType == 3 ) {
+            dispatch(EvaluationAction(`/${user_id}/evaluations`));
+          } else {
+            dispatch({
+              type: "NEW_EVALUATION_FAILED"
+            });
+          }
+        });
+  };
+}
 export var CurrentUser = remoteGetAction("CURRENT_USER", `${API_PREFIX}/users/current`);
 export var AssignmentAction = remoteGetAction("ASSIGNMENT", `${API_PREFIX}/users`);
 export var EvaluationAction = remoteGetAction("EVALUATION", `${API_PREFIX}/users`);
@@ -146,7 +166,7 @@ export var QualificationAction = remoteGetAction("QUALIFICATION", `${API_PREFIX}
 
 export var NewSolutionAction = remotePostAction("NEW_SOLUTION", `${API_PREFIX}/solutions`);
 export var NewStackAction = remotePostAction("NEW_STACK", `${API_PREFIX}/solutions/`);
-export var NewEvaluationAction = remotePostAction("NEW_EVALUATION", `${API_PREFIX}/projects`);
+// export var NewEvaluationAction = remotePostAction("NEW_EVALUATION", `${API_PREFIX}/projects`);
 
 export var SolutionListAction = remoteGetAction("SOLUTION_LIST", `${API_PREFIX}/solutions`);
 export var ProjectListAction = remoteGetAction("PROJECT_LIST", `${API_PREFIX}/projects`);

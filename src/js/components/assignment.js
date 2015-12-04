@@ -10,11 +10,10 @@ const Assignment = React.createClass({
   },
   render() {
     var capabilityChooserDialogue='';
-    if(this.props.assignment[0].uri){
+    if(this.props.assignment &&
+        this.props.assignment.length &&
+        this.props.assignment[0].uri){
       var project_id = this.props.assignment[0].uri.replace(/.+\/([0-9]+)$/g, "$1");
-      console.log(project_id);
-      console.log("project_id");
-
       capabilityChooserDialogue = <CapabilityChooserDialogue project_id={project_id}/>
     }
     return (
