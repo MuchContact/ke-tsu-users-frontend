@@ -11,10 +11,10 @@ const Evaluations = React.createClass({
     var repository = "https://";
     if(evaluation.stack)
       repository += evaluation.stack.name;
+    repository += '-' + evaluation.projectName;
     if(evaluation.solution)
-      repository += '-' + evaluation.solution.name;
+      repository += evaluation.solution.name;
 
-    repository += evaluation.projectName;
     var random = Math.floor((Math.random() * 1000) + 1);
     repository += '-' + this.props.current_user.id + '-' + random;
     return repository.replace(/\s/g, '').replace('+', '');

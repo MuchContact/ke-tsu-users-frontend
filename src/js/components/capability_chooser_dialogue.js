@@ -22,6 +22,8 @@ const CapabilityChooserDialogue = React.createClass({
   },
   onChoose(){
     var index = this.state.capabilityIndex;
+    if (index <0)
+      return;
     var capability = this.props.capabilities[index];
     var evaluationParams = {
       capability_id: capability.id
