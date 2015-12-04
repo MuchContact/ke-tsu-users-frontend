@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      API_PREFIX: JSON.stringify(process.env.API_PREFIX) || '{{API_PREFIX}}'
+      API_PREFIX: JSON.stringify(process.env.API_PREFIX) || '"{{API_PREFIX}}"'
     })
   ]
 
