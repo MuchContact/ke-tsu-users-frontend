@@ -11,8 +11,7 @@ export default function assignment(state=initialState, action) {
   switch (action.type) {
     case "ASSIGNMENT_REQUEST":
       return Object.assign({
-        assignment: state.assignment.slice(0)
-      }, {
+        assignment: state.assignment.slice(0),
         request_status: "LOADING"
       });
     case "ASSIGNMENT_SUCCESS":
@@ -22,8 +21,7 @@ export default function assignment(state=initialState, action) {
       };
     case "ASSIGNMENT_FAILURE":
       return Object.assign({
-        assignment: state.assignment.slice(0)
-      }, {
+        assignment: state.assignment.slice(0),
         request_status: "FAILED"
       });
     case "LOGOUT_SUCCESS":

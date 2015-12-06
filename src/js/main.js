@@ -24,22 +24,6 @@ var routes = (
     </Router>
 );
 
-//<Route path="projects" component={ProjectList}>
-//  <Route path="new" component={NewProject}/>
-//  <Route path=":project_id" component={Project}/>
-//</Route>
-//<Route path="solutions" component={SolutionList}>
-//    <Route path="new" component={NewSolution}/>
-//    <Route path=":solution_id" component={Solution}>
-//    <Route path="stacks/:stack_id" component={Stack}>
-//    <Route path="exam_profiles/new" component={NewExamProfile}/>
-//    </Route>
-//    <Route path="stacks/new" component={NewStack}/>
-//    </Route>
-//    </Route>
-
-// export default routes;
-
 function requireAuth(nextState, replaceState) {
   const state = store.getState();
   if (!state.current_user.current_user.name) {

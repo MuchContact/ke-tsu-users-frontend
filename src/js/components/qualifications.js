@@ -8,9 +8,9 @@ const Qualifications = React.createClass({
     this.props.dispatch(QualificationAction(`/${this.props.current_user.id}/qualifications`));
   },
   render() {
-    var qualis = [];
+    var qualificationDoms = [];
     if(this.props.qualifications.length>0){
-      qualis = this.props.qualifications.map((qualification, index) => {
+      qualificationDoms = this.props.qualifications.map((qualification, index) => {
        return <tr>
                <td>{qualification.project_name}</td>
                <td>{qualification.solution_name}</td>
@@ -33,7 +33,7 @@ const Qualifications = React.createClass({
               </tr>
             </thead>
             <tbody>
-              {qualis}
+              {qualificationDoms}
             </tbody>
           </table>
         </div>

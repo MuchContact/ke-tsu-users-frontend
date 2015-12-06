@@ -18,7 +18,6 @@ const PersonalProfile = React.createClass({
 });
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     current_user: state.current_user.current_user
   };

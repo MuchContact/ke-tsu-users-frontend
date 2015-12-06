@@ -1,16 +1,12 @@
 var initialState = {
-  qualifications: [
-    {
-    }
-  ]
+  qualifications: []
 };
 
 export default function qualifications(state=initialState, action) {
   switch (action.type) {
     case "QUALIFICATION_REQUEST":
       return Object.assign({
-        qualifications: state.qualifications.slice(0)
-      }, {
+        qualifications: state.qualifications.slice(0),
         request_status: "LOADING"
       });
     case "QUALIFICATION_SUCCESS":
@@ -20,8 +16,7 @@ export default function qualifications(state=initialState, action) {
       };
     case "QUALIFICATION_FAILURE":
       return Object.assign({
-        qualifications: state.qualifications.slice(0)
-      }, {
+        qualifications: state.qualifications.slice(0),
         request_status: "FAILED"
       });
     case "LOGOUT_SUCCESS":

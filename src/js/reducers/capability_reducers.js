@@ -1,16 +1,12 @@
 var initialState = {
-  capabilities: [
-    {
-    }
-  ]
+  capabilities: []
 };
 
 export default function capability(state=initialState, action) {
   switch (action.type) {
     case "CAPABILITY_REQUEST":
       return Object.assign({
-        capabilities: state.capabilities.slice(0)
-      }, {
+        capabilities: state.capabilities.slice(0),
         request_status: "LOADING"
       });
     case "CAPABILITY_SUCCESS":
@@ -20,8 +16,7 @@ export default function capability(state=initialState, action) {
       };
     case "CAPABILITY_FAILURE":
       return Object.assign({
-        capabilities: state.capabilities.slice(0)
-      }, {
+        capabilities: state.capabilities.slice(0),
         request_status: "FAILED"
       });
     case "LOGOUT_SUCCESS":
