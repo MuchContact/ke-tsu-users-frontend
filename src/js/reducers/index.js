@@ -6,6 +6,7 @@ import assignment from './assignment_reducers';
 import evaluation from './evaluation_reducers';
 import qualifications from './qualification_reducers';
 import capabilities from './capability_reducers';
+import login from './login_reducers'
 
 var rootReducer = combineReducers({
   router: routerStateReducer,
@@ -13,7 +14,8 @@ var rootReducer = combineReducers({
   assignment: assignment,
   evaluation: evaluation,
   qualifications: qualifications,
-  capabilities: capabilities
+  capabilities: capabilities,
+  login: login
 
 });
 

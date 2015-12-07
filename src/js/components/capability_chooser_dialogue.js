@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
 import { CapabilityAction } from '../actions/actions';
-import { NewEvaluationAction } from '../actions/actions';
+import { EvaluationAction, NewEvaluationAction } from '../actions/actions';
 
 const CapabilityChooserDialogue = React.createClass({
   getInitialState: function() {
@@ -28,7 +28,14 @@ const CapabilityChooserDialogue = React.createClass({
     var evaluationParams = {
       capability_id: capability.id
     };
-    this.props.dispatch(NewEvaluationAction(evaluationParams, this.props.project_id, this.props.current_user.id));
+    var callback = function(){
+      this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`))
+    }.bind(this);
+    this.props.dispatch(NewEvaluationAction(evaluationParams,
+                          this.props.project_id,
+                          this.props.current_user.id,
+                          callback)
+                        );
   },
   render() {
     var capability_list = [];

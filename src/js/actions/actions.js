@@ -106,11 +106,18 @@ export function LoginAction(entity) {
         .type("form")
         .send(entity)
         .end((err, res) => {
-          if (res.statusType == 2 || res.statusType == 3 ) {
+          console.log(res)
+          if (res && (res.statusType == 2 || res.statusType == 3 )) {
             dispatch(CurrentUser());
           } else {
+            var errorMsg;
+            if(res && res.statusType == 4)
+              errorMsg = 'User doesn\'t exist';
+            else
+              errorMsg = 'Service Not Available, please check the service is ok';
             dispatch({
-              type: "LOGIN_FAILED"
+              type: "LOGIN_FAILURE",
+              error: errorMsg
             });
           }
         });
@@ -139,7 +146,7 @@ export function LogoutAction(callback) {
   };
 }
 
-export function NewEvaluationAction(entity, project_id, user_id) {
+export function NewEvaluationAction(entity, project_id, user_id, callback) {
   return (dispatch) => {
     dispatch({
       type: "NEW_EVALUATION_REQUEST"
@@ -150,7 +157,10 @@ export function NewEvaluationAction(entity, project_id, user_id) {
         .send(entity)
         .end((err, res) => {
           if (res.statusType == 2 || res.statusType == 3 ) {
-            dispatch(EvaluationAction(`/${user_id}/evaluations`));
+            dispatch({
+              type: "NEW_EVALUATION_SUCCESS"
+            });
+            callback & callback();
           } else {
             dispatch({
               type: "NEW_EVALUATION_FAILED"

@@ -10,6 +10,7 @@ export default function login(state={}, action) {
         current_user: action.payload
       };
     case "LOGIN_FAILURE":
+      alert(action.error);
       return {
         request_status: "FAILED"
       };
