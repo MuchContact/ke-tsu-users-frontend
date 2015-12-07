@@ -6,7 +6,6 @@ import PersonalProfile from './personal_profile.js';
 import Assignment from './assignment.js';
 import Evaluations from './evaluations.js';
 import Qualifications from './qualifications.js';
-import AssignmentHistoryViewer from './assignment_history_viewer.js';
 import Navbar from './navbar.js';
 
 
@@ -19,7 +18,6 @@ const Main = React.createClass({
         <Assignment />
         <Qualifications />
         <Evaluations />
-        <AssignmentHistoryViewer />
       </div>
     );
   }

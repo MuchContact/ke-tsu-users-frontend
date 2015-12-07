@@ -1,6 +1,6 @@
 import request from 'superagent';
 import addItemsToForm from '../utils/post_as_form';
-
+var API_PREFIX = "http://localhost:8088";
 function remotePostAction(name, url, path='') {
   var requestAction = `${name.toUpperCase()}_REQUEST`;
   var successAction = `${name.toUpperCase()}_SUCCESS`;

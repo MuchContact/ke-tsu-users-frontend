@@ -19,33 +19,24 @@ const Assignment = React.createClass({
     return (
       <div className="row">
         <div className="panel panel-default">
-          <div className="panel-heading">Current Assignment</div>
-          <ul className="list-group">
-            <li className="list-group-item">
+          <div className="panel-heading">Assigned Projects</div>
+          <ul className="list-inline">
+            <li>
+              <h3>
               {this.props.assignment && this.props.assignment.length > 0 ?
                 this.props.assignment[0].name : 'Not assigned yet'}
+              </h3>
             </li>
-          </ul>
-          {this.props.assignment && this.props.assignment.length > 0 ?
-            <div className="panel-body">
-              <p>Project Description</p>
+            <li className="last-li-in-right">
               <button type="button"
                       className="btn btn-info btn-lg"
                       data-toggle="modal"
                       data-target="#capabilityChooser">
                       Apply Evaluation
               </button>
-            </div>
-            :
-            ''
-          }
+            </li>
+          </ul>
         </div>
-        <button type="button"
-                className="btn btn-info btn-lg"
-                data-toggle="modal"
-                data-target="#historyViewer">
-                History
-        </button>
         {capabilityChooserDialogue}
       </div>
     );

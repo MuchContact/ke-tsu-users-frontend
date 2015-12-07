@@ -74,3 +74,23 @@ body {
   text-overflow: ellipsis;
   margin-top: 5px;
 }
+.last-li-in-right {
+  position: relative;
+  float: right;
+  top: 15px;
+}
+.last-li-in-right button{
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #393;
+  border: #2d862d 1px solid;
+  padding: 6px 12px;
+  line-height: 1em;
+  color: #FFF;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s ease-out;
+  opacity: 1;
+  border-radius: 2px;
+  font-size: 12px;
+}
