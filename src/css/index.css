@@ -17,3 +17,60 @@ body {
   width: 200px;
   height: 200px !important;
 }
+.preferred_name {
+  color: #555;
+  font-size: 3.0em;
+  display: inline-block;
+}
+.preferred_id {
+  font-size: 16px;
+  color: #aaa;
+  display: inline-block;
+  line-height: 30px;
+}
+.status-flag {
+  display: inline-block;
+  font-size: 16px;
+  padding: 0 10px;
+  text-transform: uppercase;
+  background: #805f7e;
+  color: #fff;
+  margin-left: 5px;
+  position: relative;
+  top: -5px;
+}
+.stack-layer {
+  background-color: #333 !important;
+  text-align: center;
+}
+.stack-service-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #2C2C2C;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+    z-index: 1;
+    margin: 5px 15px;
+}
+.stack-service-name-under{
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  padding: 3px 0;
+}
+.function-name-under {
+  color: #969696 !important;
+  font-size: 8pt;
+  font-weight: 400;
+  border-radius: 3px;
+  padding: 0 3px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+}

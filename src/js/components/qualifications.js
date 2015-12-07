@@ -11,11 +11,27 @@ const Qualifications = React.createClass({
     var qualificationDoms = [];
     if(this.props.qualifications.length>0){
       qualificationDoms = this.props.qualifications.map((qualification, index) => {
-       return <tr>
-               <td>{qualification.project_name}</td>
-               <td>{qualification.solution_name}</td>
-               <td>{qualification.stack_name}</td>
-             </tr>;
+       return (
+            <div className="col-md-4">
+               <h4>
+                Capability for <span className="label label-primary">{qualification.solution_name}</span> in
+                <span className="label label-success">{qualification.project_name}</span>
+               </h4>
+               <div className="stack-layer">
+                 <div>
+                  <a className="stack-service-logo hint hint--top" data-align="left" data-hint="A high performance free open source web server powering busiest sites on the Internet" href="/nginx">
+                    <img src="http://img.stackshare.io/service/1025/logo-mysql-170x170.png" />
+                  </a>
+                 </div>
+                 <div className="stack-service-name-under">
+                  <a className="stack-service-name-under" href="/mysql">MySql</a>
+                 </div>
+                 <div>
+                  <div className="function-name-under"><a className="function-name-under" href="/languages">Databases</a></div>
+                 </div>
+               </div>
+            </div>
+           );
      });
     }
     return (
@@ -24,18 +40,7 @@ const Qualifications = React.createClass({
           <h3>Qualifications</h3>
         </div>
         <div className="row">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Project</th>
-                <th>Solution</th>
-                <th>Stack</th>
-              </tr>
-            </thead>
-            <tbody>
-              {qualificationDoms}
-            </tbody>
-          </table>
+          {qualificationDoms}
         </div>
       </div>
 

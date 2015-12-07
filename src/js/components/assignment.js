@@ -17,7 +17,7 @@ const Assignment = React.createClass({
       capabilityChooserDialogue = <CapabilityChooserDialogue project_id={project_id}/>
     }
     return (
-      <div className="col-sm-12 col-md-8">
+      <div className="row">
         <div className="panel panel-default">
           <div className="panel-heading">Current Assignment</div>
           <ul className="list-group">

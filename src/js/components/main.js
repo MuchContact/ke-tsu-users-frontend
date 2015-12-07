@@ -15,14 +15,11 @@ const Main = React.createClass({
     return (
       <div className="container">
         <Navbar />
-        <div className="row">
-          <PersonalProfile />
-          <Assignment />
-        </div>
-        <Evaluations />
+        <PersonalProfile />
+        <Assignment />
         <Qualifications />
+        <Evaluations />
         <AssignmentHistoryViewer />
-
       </div>
     );
   }
