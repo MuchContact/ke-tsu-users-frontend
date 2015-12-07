@@ -94,3 +94,19 @@ body {
   border-radius: 2px;
   font-size: 12px;
 }
+.image-tag-container img{
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+  margin-top: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #E6E6E6;
+}
+.service-name-trending{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: black;
+
+}
