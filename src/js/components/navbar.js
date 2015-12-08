@@ -12,26 +12,24 @@ const Navbar = React.createClass({
   },
   render() {
     return (
-      <nav className="navbar navbar-inverse navbar-fixed-top">
+      <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="">
-              <img alt="Brand"
-                  src="https://c.na32.content.force.com/servlet/servlet.ImageServer?id=01550000000Yo0H&oid=00D500000007lOm&lastMod=1350290446000"
-                  className="logo"/>
-            </a>
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a className="navbar-brand" href="#">ThoughtWorks</a>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav navbar-left">
+            <ul className="nav navbar-nav navbar-right">
               <li><Link to="/" href="javascript: void(0)">My Profile</Link></li>
               <li><a href="#" onClick={this.logout}>Logout</a></li>
             </ul>
-            <form className="navbar-form navbar-right" role="search">
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Search" />
-              </div>
-            </form>
           </div>
         </div>
       </nav>

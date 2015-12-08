@@ -35,7 +35,7 @@ const Assignment = React.createClass({
             </li>
             <li className="col-md-2">
               <button type="button"
-                      className="last-li-in-right-button"
+                      className="btn btn-primary btn-xs"
                       data-toggle="modal"
                       data-target="#capabilityChooser">
                       Apply Evaluation
