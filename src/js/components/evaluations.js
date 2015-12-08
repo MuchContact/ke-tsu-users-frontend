@@ -4,6 +4,16 @@ import { pushState } from 'redux-router';
 import { EvaluationAction } from '../actions/actions';
 
 const Evaluations = React.createClass({
+  capitalizeFirstLetterForWord(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  },
+  capitalizeFirstLetter(string) {
+    var that = this;
+    var words = string.split(" ").map((word) => {
+      return that.capitalizeFirstLetterForWord(word);
+    });
+    return words.join(" ");
+  },
   componentWillMount() {
     this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`));
   },
@@ -27,11 +37,12 @@ const Evaluations = React.createClass({
         if(!evaluation.status)
           status="NEW";
         var repository = this.generateRepositoryUri(evaluation);
+        var projectName = this.capitalizeFirstLetter(evaluation.projectName);
        return (
             <div className="row evaluation-row">
               <div className="col-md-4">
                 <div className="service-name-trending">
-                {evaluation.projectName}
+                {projectName}
                 </div>
                 <div className="image-tag-container">
                   <img alt="Fbbb494a7eef5f9278c6967b6072ca3e" src="http://img.stackshare.io/service/586/fbbb494a7eef5f9278c6967b6072ca3e.png"/>
