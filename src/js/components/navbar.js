@@ -27,8 +27,9 @@ const Navbar = React.createClass({
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/" href="javascript: void(0)">My Profile</Link></li>
-              <li><a href="#" onClick={this.logout}>Logout</a></li>
+              {this.props.current_user.name ? <li><Link to="/">My Profile</Link></li> : ''}
+              {this.props.current_user.name ? (<li><a href="#">{this.props.current_user.name}</a></li>) : (<li><Link to="/login">Login</Link></li>)}
+              {this.props.current_user.name ? <li><a href="#" onClick={this.logout}>Logout</a></li> : ""}
             </ul>
           </div>
         </div>
@@ -39,7 +40,7 @@ const Navbar = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    'current_user': state['current_user']
+    'current_user': state.current_user.current_user
   };
 }
 

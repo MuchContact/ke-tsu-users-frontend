@@ -12,14 +12,11 @@ import Navbar from './navbar.js';
 const Main = React.createClass({
   render() {
     return (
-        <div>
-          <Navbar />
-          <div className="container">
-            <PersonalProfile />
-            <Assignment />
-            <Qualifications />
-            <Evaluations />
-          </div>
+        <div className="container">
+          <PersonalProfile />
+          <Assignment />
+          <Qualifications />
+          <Evaluations />
         </div>
     );
   }

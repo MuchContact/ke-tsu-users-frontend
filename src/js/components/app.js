@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { pushState } from 'redux-router';
 import { CurrentUser, LogoutAction } from '../actions/actions';
+import Navbar from './navbar';
 
 const App = React.createClass({
   componentWillMount() {
@@ -10,6 +11,7 @@ const App = React.createClass({
   render() {
     return (
         <div>
+          <Navbar />
           {this.props.children}
         </div>
     );
