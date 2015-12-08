@@ -28,7 +28,7 @@ const Evaluations = React.createClass({
           status="NEW";
         var repository = this.generateRepositoryUri(evaluation);
        return (
-            <div className="row">
+            <div className="row evaluation-row">
               <div className="col-md-4">
                 <div className="service-name-trending">
                 {evaluation.projectName}

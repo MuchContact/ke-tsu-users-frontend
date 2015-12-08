@@ -24,9 +24,13 @@ const Login = React.createClass({
           <label>Please Link to Our System by User Name</label>
           <input type="text" className="form-control" placeholder="User Name" ref="name"/>
         </div>
+        <div className="form-group">
+            <label>Password</label>
+            <input type="password" className="form-control" placeholder="Password" ref="password"/>
+          </div>
         <button className="btn btn-lg btn-primary btn-block"
                 type="submit">
-                Enter
+                Login
         </button>
       </form>
     );

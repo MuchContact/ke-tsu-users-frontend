@@ -22,10 +22,10 @@ const Assignment = React.createClass({
           <div className="panel-heading">Assigned Projects</div>
           <ul className="list-inline">
             <li>
-              <h3>
+              <a className="assigned-project-name">
               {this.props.assignment && this.props.assignment.length > 0 ?
                 this.props.assignment[0].name : 'Not assigned yet'}
-              </h3>
+              </a>
             </li>
             <li className="last-li-in-right">
               <button type="button"

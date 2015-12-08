@@ -42,10 +42,12 @@ body {
 .stack-layer {
   background-color: #333 !important;
   text-align: center;
+  height: 200px;
+  padding-top: 20px;
 }
 .stack-service-logo img {
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
     border-radius: 5px;
     border: 1px solid #2C2C2C;
     -webkit-border-radius: 5px;
@@ -95,8 +97,8 @@ body {
   font-size: 12px;
 }
 .image-tag-container img{
-  height: 15px;
-  width: 15px;
+  height: 30px;
+  width: 30px;
   margin-right: 8px;
   margin-top: 3px;
   background-color: #fff;
@@ -108,5 +110,29 @@ body {
   font-weight: bold;
   text-align: left;
   color: black;
-
+  margin: 10px 0;
+}
+.qulification-header {
+  border: solid 1px #EFEFEF;
+  height: 100px;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 21px;
+  cursor: pointer;
+}
+.qulification-header:hover {
+  color: #428bca;
+}
+.evaluation-row {
+  margin: 10px 0;
+  border-radius: 10px;
+}
+.evaluation-row:hover {
+  border: solid 1px #E9E7E7;
+  border-radius: 10px;
+  padding: 30px 0;
+}
+.assigned-project-name {
+  font-size: 25px;
+  margin: 20px;
 }
