@@ -7,9 +7,10 @@ import { Provider } from 'react-redux'
 import App from './components/app';
 import { createHistory } from 'history';
 import configureStore from './stores/configureStore.dev';
-require("bootstrap-webpack");
-require("../css/open-sans.css");
-require("../css/index.css");
+require("../styles/fonts.css");
+require("bootstrap-webpack!../styles/bootstrap.config.js");
+require("../styles/theme.scss");
+require("../styles/index.css");
 
 import Login from './components/login';
 import Main from './components/main';
