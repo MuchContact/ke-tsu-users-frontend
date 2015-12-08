@@ -114,6 +114,8 @@
 .evaluation-row:hover {
   border: solid 1px #E9E7E7;
   border-radius: 10px;
+  background: #DDD;
+  cursor: pointer;
 }
 .assigned-project-name {
   /*font-size: 25px;*/
@@ -122,4 +124,11 @@
 .ul-row {
   padding: 10px 0px;
   margin-left: 10px;
+}
+.no-underline-anchor:hover, .no-underline-anchor:focus {
+  text-decoration: none;
+}
+.capability-row:hover {
+  border: solid 1px #E9E7E7;
+  background: #DDD;
 }

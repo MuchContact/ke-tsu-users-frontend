@@ -20,8 +20,7 @@ const CapabilityChooserDialogue = React.createClass({
             });
     }.bind(this);
   },
-  onChoose(){
-    var index = this.state.capabilityIndex;
+  onChoose(index){
     if (index <0)
       return;
     var capability = this.props.capabilities[index];
@@ -41,11 +40,23 @@ const CapabilityChooserDialogue = React.createClass({
     var capability_list = [];
     if(this.props.capabilities && this.props.capabilities.length>0){
       capability_list = this.props.capabilities.map((capability, index) => {
-       return <a href="#" onClick={this.clickAnchor(index)} className="list-group-item">
-         <h4 className="list-group-item-heading">Capbility {capability.id}</h4>
-         <p className="list-group-item-text"><span>Solution:</span> {capability.solution? capability.solution.name:''}</p>
-         <p className="list-group-item-text"><span>Stack:</span> {capability.stack? capability.stack.name:''}</p>
-       </a>;
+       return(
+         <div className="media capability-row">
+
+           <div className="media-body">
+             <a href="#" className="no-underline-anchor" onClick={this.clickAnchor(index)}>
+               <h4 className="list-group-item-heading">Capbility ID: {capability.id}</h4>
+               <p className="list-group-item-text"><span>Solution:</span> {capability.solution? capability.solution.name:''}</p>
+               <p className="list-group-item-text"><span>Stack:</span> {capability.stack? capability.stack.name:''}</p>
+             </a>
+           </div>
+           <div className="media-left">
+             <button type="button" onClick={this.onChoose(index)} className="btn btn-default" data-dismiss="modal">Choose</button>
+           </div>
+         </div>
+
+
+       )
      });
     }
     return (
@@ -57,13 +68,9 @@ const CapabilityChooserDialogue = React.createClass({
               <h4 className="modal-title">Choose a Capbility</h4>
             </div>
             <div className="modal-body">
-              <div className="list-group">
                 {capability_list}
-              </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" onClick={this.onChoose} className="btn btn-default" data-dismiss="modal">Choose</button>
-            </div>
+
           </div>
         </div>
       </div>
