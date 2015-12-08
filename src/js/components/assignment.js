@@ -20,16 +20,22 @@ const Assignment = React.createClass({
       <div className="row">
         <div className="panel panel-default">
           <div className="panel-heading">Assigned Projects</div>
-          <ul className="list-inline">
-            <li>
+          <ul className="list-inline row ul-row">
+            <li className="col-md-4">
               <a className="assigned-project-name">
               {this.props.assignment && this.props.assignment.length > 0 ?
                 this.props.assignment[0].name : 'Not assigned yet'}
               </a>
             </li>
-            <li className="last-li-in-right">
+            <li className="col-md-3">
+            From 2015-12-1 To 2016-6-1
+            </li>
+            <li className="col-md-2">
+            Inner System
+            </li>
+            <li className="col-md-2">
               <button type="button"
-                      className="btn btn-info btn-lg"
+                      className="last-li-in-right-button"
                       data-toggle="modal"
                       data-target="#capabilityChooser">
                       Apply Evaluation

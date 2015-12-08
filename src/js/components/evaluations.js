@@ -29,6 +29,18 @@ const Evaluations = React.createClass({
     repository += '-' + this.props.current_user.id + '-' + random;
     return repository.replace(/\s/g, '').replace('+', '');
   },
+  renderStackTags(services){
+    var tags = services.map((service) => {
+      return (
+        <img alt={service.name} src={service.image_url}/>
+      );
+    });
+    return (
+      <div className="image-tag-container">
+        {tags}
+      </div>
+    );
+  },
   render() {
     var evalus = [];
     if(this.props.evaluations && this.props.evaluations.length>0){
@@ -38,19 +50,15 @@ const Evaluations = React.createClass({
           status="NEW";
         var repository = this.generateRepositoryUri(evaluation);
         var projectName = this.capitalizeFirstLetter(evaluation.projectName);
+
+        var stackTags = this.renderStackTags(evaluation.stack.services);
        return (
             <div className="row evaluation-row">
               <div className="col-md-4">
                 <div className="service-name-trending">
                 {projectName}
                 </div>
-                <div className="image-tag-container">
-                  <img alt="Fbbb494a7eef5f9278c6967b6072ca3e" src="http://img.stackshare.io/service/586/fbbb494a7eef5f9278c6967b6072ca3e.png"/>
-                  <img alt="Amazon route 53" src="http://img.stackshare.io/service/38/amazon-route-53.png" />
-                  <img alt="Usjimvns" src="http://img.stackshare.io/service/1722/USjimvnS.png" />
-                  <img alt="Falgg2jybmhgk16y62lr" src="http://img.stackshare.io/service/845/falgg2jybmhgk16y62lr.png" />
-                  <img alt="Elasticsearch" src="http://img.stackshare.io/service/841/elasticsearch.png" />
-                </div>
+                {stackTags}
               </div>
               <div className="col-md-8">
                 <p>Solution: {evaluation.solution?evaluation.solution.name:''}</p>
@@ -59,7 +67,7 @@ const Evaluations = React.createClass({
                   <input type="text" className="form-control"
                     placeholder="Recipient's username"
                     aria-describedby="basic-addon2"
-                    value={repository}/>
+                    value={repository} readonly="readonly" />
                   <span className="input-group-addon" id="basic-addon2">Copy</span>
                 </div>
               </div>

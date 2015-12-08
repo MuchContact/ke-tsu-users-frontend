@@ -20,7 +20,7 @@ const Qualifications = React.createClass({
   renderStackSerices(services){
     return services.map((service, index) => {
       return (
-        <div className="col-md-2">
+        <div className="col-md-4">
           <div>
            <a className="stack-service-logo hint hint--top"
               data-align="left"
@@ -38,7 +38,7 @@ const Qualifications = React.createClass({
       var stackElements = this.renderStackSerices(qualification.stack.services)
       var solutionName = this.capitalizeFirstLetter(qualification.solution_name);
       return (
-          <div className="col-md-4">
+          <div className="col-md-3">
              <div className="qulification-header">
                 <span>{solutionName}</span>
              </div>

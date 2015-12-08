@@ -1,6 +1,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+  font-family: 'Open Sans';
 }
 .logo {
   height: 100%;
@@ -81,7 +82,7 @@ body {
   float: right;
   top: 15px;
 }
-.last-li-in-right button{
+.last-li-in-right-button{
   display: inline-block;
   vertical-align: bottom;
   background-color: #393;
@@ -126,13 +127,17 @@ body {
 .evaluation-row {
   margin: 10px 0;
   border-radius: 10px;
+  padding: 30px 0;
 }
 .evaluation-row:hover {
   border: solid 1px #E9E7E7;
   border-radius: 10px;
-  padding: 30px 0;
 }
 .assigned-project-name {
-  font-size: 25px;
-  margin: 20px;
+  /*font-size: 25px;*/
+  /*margin: 20px;*/
+}
+.ul-row {
+  padding: 10px 0px;
+  margin-left: 10px;
 }
