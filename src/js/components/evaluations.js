@@ -35,13 +35,13 @@ const Evaluations = React.createClass({
   renderStackTags(services){
     var tags = services.map((service) => {
       return (
-          <img alt={service.name} src={service.image_url}/>
+          <li><img alt={service.name} src={service.image_url}/></li>
       );
     });
     return (
-        <div className="image-tag-container">
+        <ul className="image-tag-container list-unstyled list-inline">
           {tags}
-        </div>
+        </ul>
     );
   },
   render() {
@@ -57,13 +57,17 @@ const Evaluations = React.createClass({
         var stackTags = this.renderStackTags(evaluation.stack.services);
         return (
             <div className="row evaluation-row">
-              <div className="col-md-4">
-                <div className="service-name-trending">
-                  {projectName}
-                </div>
+              <div className="col-md-2">
+                <p>
+                  Implementing {evaluation.solution.name} with {evaluation.stack.name} in project {projectName}
+                </p>
+                <p>Stack including services:</p>
                 {stackTags}
+                <p>
+                  Started at {new Date(evaluation.created_at).toLocaleString()}
+                </p>
               </div>
-              <div className="col-md-8">
+              <div className="col-md-10">
                 <div>
                   <p>Run this commands in your project dir</p>
                   <pre>deis register http://deis.tw.com --username={this.generateUserName(evaluation)} --password={this.generateUserName(evaluation)} --email={evaluation.user.name}@thoughtworks.com<br/>

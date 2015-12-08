@@ -41,39 +41,30 @@ const CapabilityChooserDialogue = React.createClass({
     if(this.props.capabilities && this.props.capabilities.length>0){
       capability_list = this.props.capabilities.map((capability, index) => {
        return(
-         <div className="media capability-row">
-
-           <div className="media-body">
-             <a href="#" className="no-underline-anchor" onClick={this.clickAnchor(index)}>
-               <h4 className="list-group-item-heading">Capbility ID: {capability.id}</h4>
-               <p className="list-group-item-text"><span>Solution:</span> {capability.solution? capability.solution.name:''}</p>
-               <p className="list-group-item-text"><span>Stack:</span> {capability.stack? capability.stack.name:''}</p>
-             </a>
-           </div>
-           <div className="media-left">
-             <button type="button" onClick={this.onChoose(index)} className="btn btn-default" data-dismiss="modal">Choose</button>
-           </div>
-         </div>
-
-
+           <li className="list-group-item">
+             Capability of implementing {capability.solution.name} with {capability.stack.name}
+             <button type="button" onClick={this.onChoose(index)} className="btn btn-primary btn-xs" style={{float: 'right'}} data-dismiss="modal">Choose</button>
+           </li>
        )
      });
     }
     return (
-      <div className="modal fade" id="capabilityChooser" role="dialog">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal">&times;</button>
-              <h4 className="modal-title">Choose a Capbility</h4>
-            </div>
-            <div className="modal-body">
-                {capability_list}
-            </div>
+        <div className="modal fade" id="capabilityChooser" role="dialog">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal">&times;</button>
+                <h4 className="modal-title">Choose a Capbility</h4>
+              </div>
+              <div className="modal-body">
+                <ul className="list-group">
+                  {capability_list}
+                </ul>
+              </div>
 
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 });

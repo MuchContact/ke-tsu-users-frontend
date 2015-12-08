@@ -108,14 +108,12 @@
 }
 .evaluation-row {
   margin: 10px 0;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 30px 0;
+  border: 1px solid #f1f1f1;
 }
 .evaluation-row:hover {
-  border: solid 1px #E9E7E7;
-  border-radius: 10px;
-  background: #DDD;
-  cursor: pointer;
+  background: #f3f3f3;
 }
 .assigned-project-name {
   /*font-size: 25px;*/
@@ -129,6 +127,6 @@
   text-decoration: none;
 }
 .capability-row:hover {
-  border: solid 1px #E9E7E7;
-  background: #DDD;
+  /*border: solid 1px #E9E7E7;*/
+  /*background: #DDD;*/
 }
