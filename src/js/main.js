@@ -8,8 +8,8 @@ import App from './components/app';
 import { createHistory } from 'history';
 import configureStore from './stores/configureStore.dev';
 require("../styles/fonts.css");
-require("bootstrap-webpack!../styles/bootstrap.config.js");
-require("../styles/theme.scss");
+require("bootstrap-webpack!../styles/bootstrap/bootstrap.config.js");
+require("../styles/bootstrap/theme.scss");
 require("../styles/index.css");
 
 import Login from './components/login';
