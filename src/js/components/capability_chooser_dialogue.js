@@ -31,8 +31,7 @@ const CapabilityChooserDialogue = React.createClass({
       var callback = function(){
         this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`))
       }.bind(this);
-      alert('choose');
-      
+
       this.props.dispatch(NewEvaluationAction(evaluationParams,
                             this.props.project_id,
                             this.props.current_user.id,
