@@ -11,7 +11,7 @@ const PersonalProfile = React.createClass({
             {this.props.current_user.name}
           </div>
           <span className="preferred_id">
-            ID: 16116
+            ID: {this.props.current_user.id}
           </span>
           <span className="status-flag">
             Professional Services
