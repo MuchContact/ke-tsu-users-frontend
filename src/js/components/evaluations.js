@@ -57,7 +57,7 @@ const Evaluations = React.createClass({
         var stackTags = this.renderStackTags(evaluation.stack.services);
         return (
             <div className="row evaluation-row">
-              <div className="col-md-2">
+              <div className="col-md-3">
                 <p>
                   Implementing {evaluation.solution.name} with {evaluation.stack.name} in project {projectName}
                 </p>
@@ -67,7 +67,7 @@ const Evaluations = React.createClass({
                   Started at {new Date(evaluation.created_at).toLocaleString()}
                 </p>
               </div>
-              <div className="col-md-10">
+              <div className="col-md-9">
                 <div>
                   <p>Run this commands in your project dir</p>
                   <pre>deis register http://deis.tw.com --username={this.generateUserName(evaluation)} --password={this.generateUserName(evaluation)} --email={evaluation.user.name}@thoughtworks.com<br/>

@@ -21,20 +21,25 @@ const CapabilityChooserDialogue = React.createClass({
     }.bind(this);
   },
   onChoose(index){
-    if (index <0)
-      return;
-    var capability = this.props.capabilities[index];
-    var evaluationParams = {
-      capability_id: capability.id
-    };
-    var callback = function(){
-      this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`))
+    return function() {
+      if (index <0)
+        return;
+      var capability = this.props.capabilities[index];
+      var evaluationParams = {
+        capability_id: capability.id
+      };
+      var callback = function(){
+        this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`))
+      }.bind(this);
+      alert('choose');
+      
+      this.props.dispatch(NewEvaluationAction(evaluationParams,
+                            this.props.project_id,
+                            this.props.current_user.id,
+                            callback)
+                          );
     }.bind(this);
-    this.props.dispatch(NewEvaluationAction(evaluationParams,
-                          this.props.project_id,
-                          this.props.current_user.id,
-                          callback)
-                        );
+
   },
   render() {
     var capability_list = [];
