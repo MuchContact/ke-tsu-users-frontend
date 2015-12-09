@@ -17,6 +17,9 @@ const Evaluations = React.createClass({
   componentWillMount() {
     this.props.dispatch(EvaluationAction(`/${this.props.current_user.id}/evaluations`));
   },
+  generateArchetypeName(evaluation) {
+    return `${evaluation.stack.name}_${evaluation.solution.name}`.replace(/[\s+]/g, '');
+  },
   generateUserName(evaluation) {
     return `${evaluation.user.name}${evaluation.created_at}`;
   },
@@ -71,8 +74,13 @@ const Evaluations = React.createClass({
               </div>
               <div className="col-md-9">
                 <div>
-                  <p>Run this commands in your project dir</p>
-                  <pre>deis register http://deis.tw.com --username={this.generateUserName(evaluation)} --password={this.generateUserName(evaluation)} --email={evaluation.user.name}@thoughtworks.com<br/>
+                  <p>First you must install <a href="http://deis.io" target="_blank">deis</a> and <code>git</code> in your computer and then run this commands below in your work directory</p>
+                  <pre>
+                    git clone git@github.com:aisensiy/{this.generateArchetypeName(evaluation)}.git<br/>
+                    cd {this.generateArchetypeName(evaluation)}<br/>
+                    rm -rf .git<br/>
+                    git init && git add . && git commit -m 'Initial commit'<br/>
+                    deis register http://deis.deepi.cn --username={this.generateUserName(evaluation)} --password={this.generateUserName(evaluation)} --email={evaluation.user.name}@thoughtworks.com<br/>
                     deis create {repository} <br/>
                     ssh-keygen -f ~/.ssh/{repository} -t rsa -N '' <br/>
                     chmod 400 ~/.ssh/{repository}* <br/>
