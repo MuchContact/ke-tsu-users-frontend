@@ -64,8 +64,10 @@ const Evaluations = React.createClass({
                 <p>Stack including services:</p>
                 {stackTags}
                 <p>
-                  Started at {new Date(evaluation.created_at).toLocaleString()}
+                  Started at {new Date(evaluation.created_at).toLocaleString()}<br/>
+                  Already {`${~~((+new Date() - evaluation.created_at) / 1000 / 60)} minutes`}
                 </p>
+                {evaluation.status == 'pass' ? <div style={{display: 'block'}} className="label label-success">Test Pass</div> : ''}
               </div>
               <div className="col-md-9">
                 <div>
